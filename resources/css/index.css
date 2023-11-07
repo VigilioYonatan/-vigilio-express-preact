@@ -1,0 +1,59 @@
+@import "./fontawesome/brands.min.css";
+@import "./fontawesome/fontawesome.min.css";
+@import "./fontawesome/regular.css";
+@import "./fontawesome/solid.min.css";
+@import "./utils.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* swal */
+.vigilio-modal {
+    @apply bg-black;
+}
+.vigilio-modal .modal {
+    @apply dark:bg-paper-dark bg-paper-light;
+}
+.vigilio-modal .modal .vigilio-success-circular-line-right {
+    @apply dark:bg-paper-dark bg-paper-light;
+}
+.vigilio-modal .modal .vigilio-success-fix {
+    @apply dark:bg-paper-dark bg-paper-light;
+}
+.vigilio-modal .modal .vigilio-success-circular-line-left {
+    @apply dark:bg-paper-dark bg-paper-light;
+}
+.vigilio-modal .modal .vigilio-title {
+    @apply dark:text-secondary-light text-secondary-dark;
+}
+.vigilio-modal .modal .vigilio-html-container {
+    @apply text-terciary  font-normal tracking-wide;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-primary rounded-md; /* Color del pulgar de la barra de desplazamiento */
+}
+
+::-webkit-scrollbar-track {
+    background-color: #ffffff00;
+}
+
+::-webkit-scrollbar-horizontal {
+    height: 12px;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+    @apply bg-primary;
+}
+
+::-webkit-scrollbar-track:horizontal {
+    @apply bg-transparent;
+}
+
+input {
+    color-scheme: dark;
+}
