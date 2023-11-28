@@ -9,7 +9,9 @@
             "recommended": true,
             "suspicious": {
                 "noConsoleLog": { "level": "error" }
-            }
+            },
+            "a11y": { "useKeyWithClickEvents": "off" },
+            "style": { "noNonNullAssertion": "off" }
         }
     },
     "javascript": {

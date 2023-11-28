@@ -2,7 +2,6 @@ import { Injectable } from "@decorators/di";
 import { Controller, Get, Params, Res } from "@decorators/express";
 import { AppService } from "./app.service";
 import { Response } from "express";
-import { string, number, transform, parse, coerce, nan, custom } from "valibot";
 
 @Injectable()
 @Controller("/")

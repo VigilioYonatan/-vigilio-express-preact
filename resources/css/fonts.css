@@ -1,7 +1,10 @@
 @import "./fontawesome/brands.min.css";
-@import "./fontawesome/regular.css";
+@import "./fontawesome/regular.min.css";
 @import "./fontawesome/fontawesome.min.css";
 @import "./fontawesome/solid.min.css";
+@import "./fontawesome/duotone.min.css";
+@import "./fontawesome/sharp-regular.min.css";
+@import "./fontawesome/sharp-solid.min.css";
 @font-face {
     font-family: Exo-Thin;
     src: url("/fonts/Exo-Thin.ttf");
