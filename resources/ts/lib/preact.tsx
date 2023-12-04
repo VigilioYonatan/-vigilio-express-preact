@@ -34,11 +34,11 @@ function nameTemplate(text: string) {
     return text.replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase();
 }
 
-export function reactComponent(children: JSX.Element | JSX.Element[]) {
+export function reactComponent(children: JSX.Element | JSX.Element[]): Element {
     const div = c("div");
 
     renderPreact(<Suspense fallback={null}>{children}</Suspense>, div);
-    return div;
+    return div.firstElementChild as Element;
 }
 
 export default render;

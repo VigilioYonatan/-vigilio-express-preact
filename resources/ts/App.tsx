@@ -3,7 +3,6 @@ import { Switch, Router, Route, useLocation } from "wouter-preact";
 
 function App({ $user }: { $user: { id: 1; name: string } }) {
     const [location] = useLocation();
-    console.log($user);
 
     if (!location.startsWith("/admin")) return null;
 
