@@ -24,7 +24,7 @@
     "license": "ISC",
     "dependencies": {
         "@decorators/di": "^2.0.0",
-        "@decorators/express": "^3.0.0",
+        "@decorators/express": "^2.9.4",
         "@preact/signals": "^1.2.2",
         "@vigilio/express-core": "^1.4.2",
         "@vigilio/preact-fetching": "^2.0.7",

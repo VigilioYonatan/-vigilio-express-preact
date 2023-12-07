@@ -8,14 +8,7 @@ export async function middlewareRoute(req: Request, res: Response) {
             message: "This endpoint is not correct",
         });
     }
-    if (req.path.includes("/admin")) {
-        res.status(404);
-        const message =
-            (req as Request & { errorMessage: string }).errorMessage ||
-            "No se encontró esta página";
-        res.render("admin/404", { message, title: "404" });
-        return;
-    }
+
     res.status(404);
     res.render("web/404");
 }
