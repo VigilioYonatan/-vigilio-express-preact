@@ -2,33 +2,30 @@
 <html lang="en">
 
 <head>
-  <%- include('./components/webHead',{title:"Home"}) %>
+  <%- include('./components/webHead.ejs') %>
 </head>
 
-<body class="dark:bg-background-dark bg-background-light">
-  <div class="relative container mx-auto w-[170px] h-[170px] my-6">
-    <img class="block mx-auto" src="/images/logo.png" width="170" height="170" alt="logo" />
 
+<body class="bg-black bg-opacity-80">
+  <%- include("./components/snowEffect.ejs")  %>
+  <div class="relative container mx-auto w-[170px] h-[170px] my-6">
+    <img src="<%= route('/images/settings/christmas-hat.webp')  %>" width="100" height="100" class="absolute -top-4 -right-2 rotate-12" alt="hat christmas-hat">
+    <% if(holiday() ==="merry-christmas"){ %>
+    <img class="block mx-auto" src="<%= route('/images/logo.png') %>" width="170" height="170" alt="logo" />
+    <% } %>
   </div>
   <div class="flex flex-col gap-2 justify-center items-center mt-6">
-    <h1 class="text-3xl text-white uppercase font-bold bg-black bg-opacity-80 px-3 py-2 rounded-md">
-      @vigilio/<i class="fas fa-globe-americas text-xl"></i>
+    <h1 class="text-3xl text-white uppercase font-bold  px-3 py-2 rounded-md">
+      @vigilio/express
     </h1>
-    <p class="text-white">
-      <b>@vigilio/express </b> i
-      apps
-    </p>
-    <span class="text-2xl uppercase font-bold text-yellow-400 col-span-2">OUT NOW 8!!!
+    <span class="text-2xl uppercase font-bold text-yellow-400 col-span-2 mb-3">OUT NOW!!!
     </span>
-  </div>
-  <div class="flex justify-center items-center my-6">
-    <a class="text-2xl font-bold text-white hover:text-blue-800" href="https://www.facebook.com/Jhonyvig/" target="_blank">Facebook</a>
   </div>
   <div class="flex px-3 justify-center gap-8 items-center flex-wrap max-w-4xl mx-auto">
     <div class="bg-blue-400 bg-opacity-80 flex-1 min-w-[250px] max-w-[300px] py-6 rounded-md">
-      <span class="text-white font-bold uppercase text-3xl text-center block">Controller</span>
+      <span class="text-white font-bold uppercase text-3xl text-center block">Controllers</span>
     </div>
-    <div class="bg-yellow-400 bg-opacity-80 flex-1 min-w-[250px] max-w-[300px] py-6 rounded-md">
+    <div class="bg-yellow-500 text-white bg-opacity-80 flex-1 min-w-[250px] max-w-[300px] py-6 rounded-md">
       <span class="text-white font-bold uppercase text-3xl text-center block">Services</span>
     </div>
     <div class="bg-green-400 bg-opacity-80 flex-1 min-w-[250px] max-w-[300px] py-6 rounded-md">

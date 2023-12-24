@@ -1,18 +1,21 @@
 import { useEffect, useState } from "preact/hooks";
 
 function useDebounce<T>(value: T, delay?: number): T {
-    const [debounceValue, setDebounceValue] = useState<T>(value);
+	const [debounceValue, setDebounceValue] = useState<T>(value);
 
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setDebounceValue(value);
-        }, delay || 1000);
+	useEffect(() => {
+		const timer = setTimeout(
+			() => {
+				setDebounceValue(value);
+			},
+			delay || 1000,
+		);
 
-        return () => {
-            clearTimeout(timer);
-        };
-    }, [value]);
+		return () => {
+			clearTimeout(timer);
+		};
+	}, [value]);
 
-    return debounceValue as T;
+	return debounceValue as T;
 }
 export default useDebounce;

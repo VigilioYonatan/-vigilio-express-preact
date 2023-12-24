@@ -14,9 +14,9 @@
     overflow: auto;
     width: 100%;
 }
-.vigilio-modal .modal > div {
+/* .vigilio-modal .modal > div {
     width: 100%;
-}
+} */
 .vigilio-modal .modal {
     padding: 0.5rem !important;
     overflow: auto;

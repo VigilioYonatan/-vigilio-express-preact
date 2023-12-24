@@ -1,0 +1,24 @@
+version: "3.8"
+services:
+    server:
+        container_name: server
+        restart: always
+        ports:
+            - ${PORT}:${PORT}
+        build:
+            context: .
+            target: production
+        depends_on:
+            - db
+    db:
+        container_name: db
+        image: postgres:alpine3.19
+        restart: always
+        ports:
+            - 5432:5432
+        environment:
+            POSTGRES_USER: ${DB_USER}
+            POSTGRES_PASSWORD: ${DB_PASS}
+            POSTGRES_DB: ${DB_NAME}
+        volumes:
+            - ./db:/var/lib/postgresql/data

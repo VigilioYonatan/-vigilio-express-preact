@@ -8,6 +8,7 @@ const sequelize = new Sequelize({
     username: enviroments.DB_USER,
     password: enviroments.DB_PASS,
     database: enviroments.DB_NAME,
+    port: enviroments.DB_PORT,
     pool: {
         max: 5,
         min: 0,
@@ -23,8 +24,9 @@ sequelize.addModels([
 export async function connectDB() {
     try {
         await sequelize.authenticate();
-        await sequelize.sync({ alter: true });
         logger.success("conectado a base de datos correctamente");
+        if (enviroments.NODE_ENV === "production") return;
+        await sequelize.sync({ alter: true });
     } catch (error) {
         logger.error(`Error al conectar base de datos: ${error}`);
     }

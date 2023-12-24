@@ -14,7 +14,7 @@ export default defineConfig({
         preact(),
     ],
     root: "resources",
-    base:  process.env.NODE_ENV === "production" ? "/dist/" : ".vite/dist/",
+    base: process.env.NODE_ENV === "production" ? "/dist/" : "/",
     resolve: {
         // RESOURCES ALIAS
         alias: {
@@ -34,5 +34,8 @@ export default defineConfig({
         strictPort: true,
         port: Number(process.env.VITE_PORT),
         host: true,
+        watch: {
+            usePolling: true, // docker
+        },
     },
 });

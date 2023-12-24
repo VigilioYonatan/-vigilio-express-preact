@@ -11,7 +11,12 @@
                 "noConsoleLog": { "level": "error" }
             },
             "a11y": { "useKeyWithClickEvents": "off" },
-            "style": { "noNonNullAssertion": "off" }
+            "style": {
+                "noNonNullAssertion": "off"
+            },
+            "nursery": {
+                "noUnusedImports": "error"
+            }
         }
     },
     "javascript": {

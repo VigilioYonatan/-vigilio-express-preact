@@ -1,0 +1,24 @@
+version: "3.8"
+services:
+    server:
+        image: vigilio/vigilio-services:0.0.1
+        container_name: server
+        restart: always
+        ports:
+            - ${PORT}:${PORT}
+            - ${VITE_PORT}:${VITE_PORT}
+        volumes:
+            - ./:/app
+            - /app/node_modules
+    db:
+        container_name: db
+        image: postgres:alpine3.19
+        restart: always
+        ports:
+            - ${DB_PORT}:5432
+        environment:
+            POSTGRES_USER: ${DB_USER}
+            POSTGRES_PASSWORD: ${DB_PASS}
+            POSTGRES_DB: ${DB_NAME}
+        volumes:
+            - ./db:/var/lib/postgresql/data
