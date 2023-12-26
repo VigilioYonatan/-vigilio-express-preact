@@ -1,7 +1,6 @@
 version: "3.8"
 services:
     server:
-        image: vigilio/vigilio-services:0.0.1
         container_name: server
         restart: always
         ports:
@@ -10,6 +9,10 @@ services:
         volumes:
             - ./:/app
             - /app/node_modules
+        build:
+            context: .
+            target: development
+            dockerfile: Dockerfile
     db:
         container_name: db
         image: postgres:alpine3.19
@@ -21,4 +24,6 @@ services:
             POSTGRES_PASSWORD: ${DB_PASS}
             POSTGRES_DB: ${DB_NAME}
         volumes:
-            - ./db:/var/lib/postgresql/data
+            - postgres-data:/var/lib/postgresql/data
+volumes:
+    postgres-data:

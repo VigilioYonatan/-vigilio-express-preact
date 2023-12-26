@@ -15,6 +15,9 @@ COPY . .
 COPY --from=dependencies /app/node_modules ./node_modules
 CMD ["pnpm", "start:dev"]
 
+FROM nginx:1.25.3-alpine as nginx
+COPY ./nginx.conf /etc/nginx/conf.d/default.conf
+
 #stage
 FROM base AS build
 WORKDIR /app
