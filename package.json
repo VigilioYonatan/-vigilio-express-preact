@@ -28,7 +28,7 @@
         "@decorators/di": "^2.0.0",
         "@decorators/express": "^2.9.4",
         "@preact/signals": "^1.2.2",
-        "@vigilio/express-core": "^1.7.1",
+        "@vigilio/express-core": "^1.7.2",
         "@vigilio/preact-fetching": "^2.0.7",
         "@vigilio/preact-paginator": "^0.0.8",
         "@vigilio/preact-table": "^1.0.16",
@@ -59,7 +59,7 @@
         "sequelize-typescript": "^2.1.6",
         "sharp": "0.32.6",
         "tslib": "^2.6.2",
-        "valibot": "^0.21.0",
+        "valibot": "^0.20.1",
         "wouter-preact": "^2.12.2"
     },
     "devDependencies": {
