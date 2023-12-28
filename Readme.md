@@ -22,8 +22,8 @@ docker compose up -d
 Detener contenedor y iniciar contenedor
 
 ```bash
-docker contaner stop hashdecontenedor
-docker contaner start hashdecontenedor
+docker container stop hashdecontenedor
+docker container start hashdecontenedor
 ```
 
 Ver logs de contenedor

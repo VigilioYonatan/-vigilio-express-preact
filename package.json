@@ -28,7 +28,7 @@
         "@decorators/di": "^2.0.0",
         "@decorators/express": "^2.9.4",
         "@preact/signals": "^1.2.2",
-        "@vigilio/express-core": "^1.7.2",
+        "@vigilio/express-core": "^1.7.3",
         "@vigilio/preact-fetching": "^2.0.7",
         "@vigilio/preact-paginator": "^0.0.8",
         "@vigilio/preact-table": "^1.0.16",
