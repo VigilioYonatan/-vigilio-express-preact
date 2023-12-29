@@ -11,12 +11,15 @@ dependencies:
   '@decorators/express':
     specifier: ^2.9.4
     version: 2.9.4(@decorators/di@2.0.0)(express@4.18.2)
+  '@hookform/resolvers':
+    specifier: ^3.3.3
+    version: 3.3.3(react-hook-form@7.48.2)
   '@preact/signals':
     specifier: ^1.2.2
     version: 1.2.2(preact@10.19.2)
   '@vigilio/express-core':
-    specifier: ^1.7.1
-    version: 1.7.1(express@4.18.2)
+    specifier: ^1.7.3
+    version: 1.7.3(express@4.18.2)
   '@vigilio/preact-fetching':
     specifier: ^2.0.7
     version: 2.0.7(preact@10.19.2)
@@ -108,8 +111,8 @@ dependencies:
     specifier: ^2.6.2
     version: 2.6.2
   valibot:
-    specifier: ^0.21.0
-    version: 0.21.0
+    specifier: ^0.20.1
+    version: 0.20.1
   wouter-preact:
     specifier: ^2.12.2
     version: 2.12.2(preact@10.19.2)
@@ -748,6 +751,14 @@ packages:
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0, npm: '>=6.14.13'}
     dev: true
 
+  /@hookform/resolvers@3.3.3(react-hook-form@7.48.2):
+    resolution: {integrity: sha512-bOMxKkSD3zWcS11TKoUQ8O0ZqKslFohvUsPKSrdCHiuEuMjRo/u3cq9YRJD/+xtNGYup++XD2LkjhegP5XENiw==}
+    peerDependencies:
+      react-hook-form: ^7.0.0
+    dependencies:
+      react-hook-form: 7.48.2(react@18.2.0)
+    dev: false
+
   /@isaacs/cliui@8.0.2:
     resolution: {integrity: sha512-O8jcjabXaleOG9DQ0+ARXWZBTfnP4WNAqzuiJK7ll44AmxGKv/J2M4TPjxjY3znBCfvBXFzucm1twdyFybFqEA==}
     engines: {node: '>=12'}
@@ -1351,8 +1362,8 @@ packages:
     resolution: {integrity: sha512-q0JomTsJ2I5Mv7dhHhQLGjMvX0JJm5dyZ1DXQySIUzU1UlwzB8bt+R6+LODUbz0UDIOvEzGc28tk27gBJw2N8Q==}
     dev: false
 
-  /@vigilio/express-core@1.7.1(express@4.18.2):
-    resolution: {integrity: sha512-RJeQhwpbCBkpJLkOahteKKWIMCi8Oe4Miu+15WG56QF3Xr3JwtF2f5uiomIo/Q8vDfKz3jTxYPWoboOrK2mGHw==}
+  /@vigilio/express-core@1.7.3(express@4.18.2):
+    resolution: {integrity: sha512-vzHQiRGyPBFttkiIGrcMNfBCVNk8jFsBos7ibSxW22XeEslx+D8Tk9gy3pyxako24vb3jf1KUdWEUsU53D2KiA==}
     hasBin: true
     peerDependencies:
       express: '>=4'
@@ -4100,8 +4111,8 @@ packages:
     resolution: {integrity: sha512-wa7YjyUGfNZngI/vtK0UHAN+lgDCxBPCylVXGp0zu59Fz5aiGtNXaq3DhIov063MorB+VfufLh3JlF2KdTK3xg==}
     dev: true
 
-  /valibot@0.21.0:
-    resolution: {integrity: sha512-XnzpX93b1vQL7CB3fHlhpLg7OutYpc3ke8SKOvp7IXgicRfTdP/w8+bf0DjhVsySq6YdF4Opld05mj6bTobo9g==}
+  /valibot@0.20.1:
+    resolution: {integrity: sha512-7lToTLG5wtK76u32gq8dUK0bAw7bknTGbeNSKRJunAC2soGVnNrKngg+38Jjt6FOwH+MshUONHoFz+LgmjeYKQ==}
     dev: false
 
   /validator@13.11.0:
