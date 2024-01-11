@@ -11,14 +11,11 @@ import { getOutput, getPipeIssues } from "valibot";
 export const valibotVigilio = (schema: any): Resolver<any, any> => {
     return (values, ...args) => {
         const defaultValues = Object.fromEntries(
-            Object.entries(values).filter(([k, v]) => {
-                return (
-                    schema.entries[k].type !== "optional" ||
-                    v ||
-                    typeof v === "number"
-                );
-            })
-        );
+			Object.entries(values).map(([key, value]) => {
+				const updatedValue = value === "" ? null : value;
+				return [key, updatedValue];
+			}),
+		);
         return valibotResolver(schema)(defaultValues, ...args);
     };
 };

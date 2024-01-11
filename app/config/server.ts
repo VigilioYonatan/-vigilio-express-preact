@@ -16,8 +16,8 @@ import { client } from "@vigilio/express-core/client";
 import { apiRouters } from "~/routers/api.router";
 import { webRouters } from "~/routers/web.router";
 import { authRouters } from "~/routers/auth.router";
-import { middlewareRoute } from "~/lib/middleware-route";
-import { holiday } from "~/lib/helpers";
+import { middlewareRoute } from "~/libs/middleware-route";
+import { holiday } from "~/libs/helpers";
 
 export class Server {
     public readonly app: express.Application = express();

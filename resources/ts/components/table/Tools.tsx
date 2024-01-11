@@ -3,7 +3,7 @@ import { VigilioTableContext } from "./VigilioTable";
 import { sweetAlert } from "@vigilio/sweet";
 
 interface ToolsProps {
-    onRemoveAll: (props: number[]) => void;
+    onRemoveAll?: (props: number[]) => void;
     hiddenInput?: boolean;
     hiddenDelete?: boolean;
 }
@@ -23,7 +23,9 @@ function Tools({
             });
             return;
         }
+        if (onRemoveAll) {
         onRemoveAll(table.checks.value);
+        }
     }
     return (
         <div class="flex gap-2 lg:gap-4 items-center">

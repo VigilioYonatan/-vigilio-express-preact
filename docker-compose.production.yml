@@ -7,7 +7,21 @@ services:
             - ${PORT}:${PORT}
         build:
             context: .
-            target: production
+            target: ${NODE_ENV}
+            no_cache: true
+        environment:
+            NODE_ENV: ${NODE_ENV}
+            PORT: ${PORT}
+            DB_HOST: ${DB_HOST}
+            DB_PORT: ${DB_PORT}
+            DB_USER: ${DB_USER}
+            DB_PASS: ${DB_PASS}
+            DB_NAME: ${DB_NAME}
+            SECRET_SESSION_KEY: ${SECRET_SESSION_KEY}
+            VITE_URL: ${VITE_URL}
+            VITE_PORT: ${VITE_PORT}
+            VITE_VIGILIO_WEB: ${VITE_VIGILIO_WEB}
+            VITE_VIGILIO_TOKEN: ${VITE_VIGILIO_TOKEN}
         depends_on:
             - db
     db:
@@ -21,4 +35,6 @@ services:
             POSTGRES_PASSWORD: ${DB_PASS}
             POSTGRES_DB: ${DB_NAME}
         volumes:
-            - ./db:/var/lib/postgresql/data
+            - postgres-data:/var/lib/postgresql/data
+volumes:
+    postgres-data:

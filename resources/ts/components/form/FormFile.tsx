@@ -12,16 +12,13 @@ interface FormFileProps<T extends object> {
     name: keyof T;
     multiple?: boolean;
     accept?: string;
-    isDropzone?: boolean;
     typeFile?: "image" | "file" | "video" | { value: string };
-    mode?: "update" | "append";
     typesText?: string;
     options?: RegisterOptions<T, Path<T>>;
 }
 function FormFile<T extends object>({
     multiple = false,
     accept = "*",
-    isDropzone = true,
     typeFile = "file",
     typesText = "jpg, png, webp ó jpeg",
     name,
@@ -82,6 +79,75 @@ function FormFile<T extends object>({
     function printImageBlog(image: File) {
         return URL.createObjectURL(image);
     }
+    function showFiles() {
+        return (
+            <>
+                {(files as File[]).map((file) => (
+                    <div
+                        onClick={(e) => e.preventDefault()}
+                        class="w-[90px] h-[70px] relative flex justify-center items-center group"
+                    >
+                        <div class="absolute top-0 left-0 right-0 bottom-0 w-full h-full rounded-md overflow-hidden">
+                            {typeFile instanceof Object && typeFile.value ? (
+                                <img
+                                    alt=""
+                                    class="w-[inherit] h-[inherit] object-contain"
+                                    width="60"
+                                    src={typeFile.value}
+                                />
+                            ) : null}
+                            {typeFile === "image" ? (
+                                <img
+                                    alt=""
+                                    class="w-[inherit] h-[inherit] object-cover"
+                                    width="100"
+                                    src={printImageBlog(file)}
+                                    height="100"
+                                />
+                            ) : null}
+                            {typeFile === "video" ? (
+                                // biome-ignore lint/a11y/useMediaCaption: <explanation>
+                                <video
+                                    width="150"
+                                    height="150"
+                                    src={printImageBlog(file)}
+                                />
+                            ) : null}
+                            {typeFile === "file" ? (
+                                <img
+                                    alt=""
+                                    src="/file.png"
+                                    class="dropzone-vigilio__imgerror"
+                                    width="60"
+                                />
+                            ) : null}
+
+                            <i class="far fa-file-image" />
+                        </div>
+
+                        <button
+                            type="button"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                removeFile(file);
+                            }}
+                            class="absolute -top-2 -right-2 text-xs rounded-full bg-red-600 px-1 text-white"
+                        >
+                            x
+                        </button>
+                        <div class="z-10 justify-center items-center flex-col gap-2 hidden group-hover:flex">
+                            <span class="bg-black bg-opacity-70 whitespace-nowrap text-white py-0.5 px-1 rounded-md text-xs">
+                                {file.name}
+                            </span>
+                            <span class="bg-black bg-opacity-70 text-white py-0.5 px-1 rounded-md text-xs whitespace-nowrap">{`${String(
+                                file.size / 1000000
+                            ).slice(0, 4)}MB`}</span>
+                        </div>
+                    </div>
+                ))}
+            </>
+        );
+    }
 
     return (
         <div class="w-full lg:mb-2">
@@ -93,7 +159,7 @@ function FormFile<T extends object>({
             </label>
             <input
                 id={name as string}
-                hidden={isDropzone}
+                hidden={true}
                 type="file"
                 multiple={multiple}
                 accept={accept}
@@ -105,6 +171,7 @@ function FormFile<T extends object>({
                     },
                     value: null as PathValue<T, Path<T>>,
                 })}
+                class=" w-full  text-sm border border-gray-200 dark:border-gray-600  rounded-lg cursor-pointer"
             />
             <label
                 onDrop={onDrop}
@@ -116,76 +183,11 @@ function FormFile<T extends object>({
                     (form.formState.errors as T)[name] ? "border-danger" : ""
                 } ${
                     isDrag.value ? "border-primary" : ""
-                } flex w-full flex-col items-center py-6 justify-center min-h-[180px] border-2 border-dashed rounded-lg cursor-pointer dark:bg-admin-terciary bg-paper-light max-w-full min-w-[250px] my-2  shadow-sm border-gray-200 dark:border-gray-600`}
+                } flex  w-full flex-col items-center py-6 justify-center min-h-[180px] border-2 border-dashed rounded-lg cursor-pointer dark:bg-admin-terciary bg-paper-light max-w-full min-w-[250px] my-2  shadow-sm border-gray-200 dark:border-gray-600`}
             >
                 <div class="flex flex-wrap justify-center gap-3 w-full">
                     {(files as File[]) && (files as File[])?.length ? (
-                        <>
-                            {(files as File[]).map((file) => (
-                                <div
-                                    onClick={(e) => e.preventDefault()}
-                                    class="w-[90px] h-[70px] relative flex justify-center items-center group"
-                                >
-                                    <div class="absolute top-0 left-0 right-0 bottom-0 w-full h-full rounded-md overflow-hidden">
-                                        {typeFile instanceof Object &&
-                                        typeFile.value ? (
-                                            <img
-                                                alt=""
-                                                class="w-[inherit] h-[inherit] object-contain"
-                                                width="60"
-                                                src={typeFile.value}
-                                            />
-                                        ) : null}
-                                        {typeFile === "image" ? (
-                                            <img
-                                                alt=""
-                                                class="w-[inherit] h-[inherit] object-cover"
-                                                width="100"
-                                                src={printImageBlog(file)}
-                                                height="100"
-                                            />
-                                        ) : null}
-                                        {typeFile === "video" ? (
-                                            // biome-ignore lint/a11y/useMediaCaption: <explanation>
-                                            <video
-                                                width="150"
-                                                height="150"
-                                                src={printImageBlog(file)}
-                                            />
-                                        ) : null}
-                                        {typeFile === "file" ? (
-                                            <img
-                                                alt=""
-                                                src="/file.png"
-                                                class="dropzone-vigilio__imgerror"
-                                                width="60"
-                                            />
-                                        ) : null}
-
-                                        <i class="far fa-file-image" />
-                                    </div>
-
-                                    <button
-                                        type="button"
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            removeFile(file);
-                                        }}
-                                        class="absolute -top-2 -right-2 text-xs rounded-full bg-red-600 px-1 text-white"
-                                    >
-                                        x
-                                    </button>
-                                    <div class="z-10 justify-center items-center flex-col gap-2 hidden group-hover:flex">
-                                        <span class="bg-black bg-opacity-70 whitespace-nowrap text-white py-0.5 px-1 rounded-md text-xs">
-                                            {file.name}
-                                        </span>
-                                        <span class="bg-black bg-opacity-70 text-white py-0.5 px-1 rounded-md text-xs whitespace-nowrap">{`${String(
-                                            file.size / 1000000
-                                        ).slice(0, 4)}MB`}</span>
-                                    </div>
-                                </div>
-                            ))}
-                        </>
+                        showFiles()
                     ) : (
                         <div class="flex flex-col items-center justify-center pt-5 pb-6">
                             {isDrag.value ? (
@@ -232,6 +234,13 @@ function FormFile<T extends object>({
                     {form.formState.errors[name]?.message}
                 </p>
             ) : null}
+            <style jsx>{`
+                input::file-selector-button {
+                    background-color: var(--primary);
+                    padding: 0.5rem 1rem;
+                    border: none;
+                }
+            `}</style>
         </div>
     );
 }

@@ -15,7 +15,7 @@
         "strict": true,
         "noImplicitAny": true,
         "noUnusedParameters": true,
-        "skipLibCheck": true,
+        "skipLibCheck": false,
         "baseUrl": ".",
         "paths": {
             "@/*": ["./app/services/*"],
