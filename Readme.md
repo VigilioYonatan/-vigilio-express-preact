@@ -11,6 +11,8 @@ by Yonatan Vigilio Lavado
 
 ```bash
 pnpm install
+# eliminar .git/ para iniciar uno nuevo
+rimraf .git/
 # empezar modo de desarrollo
 pnpm serve
 pnpm dev
@@ -61,7 +63,7 @@ docker container logs hashdecontenedor -f
 docker compose down
 ```
 
-4. Si modificaste package.json (instalar o desintalar dependencia ) Detener contenedor de la imagen "docker compose down" y instalar dependencia pnpm add *. Volver a construir contenedor y iniciar contenedor
+4. Si modificaste package.json (instalar o desintalar dependencia ) Detener contenedor de la imagen "docker compose down" y instalar dependencia pnpm add \*. Volver a construir contenedor y iniciar contenedor
 
 ```BASH
 # volver a contruir construir contenedor y iniciar

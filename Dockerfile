@@ -5,6 +5,7 @@ RUN npm i -g pnpm
 # install dependencies
 FROM base AS dependencies
 WORKDIR /app
+RUN rm -rf .git
 COPY package.json pnpm-lock.yaml /app
 RUN pnpm install
 
